@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>String Methods Assignment</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+        }
+
+        h2 {
+            text-align: center;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .box {
+            background: #ffffff;
+            padding: 15px 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.02);
+        }
+
+        .box span {
+            font-weight: 600;
+            color: #333;
+        }
+
+        button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: #667eea;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        footer {
+            text-align: center;
+            color: #eee;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>JavaScript String Methods (With CSS)</h2>
+
+    <div class="container">
+
+        <div class="box"><span>Q1: Full Name</span><button onclick="q1()">Run</button></div>
+        <div class="box"><span>Q2: Mobile Model Length</span><button onclick="q2()">Run</button></div>
+        <div class="box"><span>Q3: Index of 'n'</span><button onclick="q3()">Run</button></div>
+        <div class="box"><span>Q4: Last Index of 'l'</span><button onclick="q4()">Run</button></div>
+        <div class="box"><span>Q5: Character at Index 3</span><button onclick="q5()">Run</button></div>
+        <div class="box"><span>Q6: concat() Method</span><button onclick="q6()">Run</button></div>
+        <div class="box"><span>Q7: Replace Hyderabad</span><button onclick="q7()">Run</button></div>
+        <div class="box"><span>Q8: Replace and → &</span><button onclick="q8()">Run</button></div>
+        <div class="box"><span>Q9: String to Number</span><button onclick="q9()">Run</button></div>
+        <div class="box"><span>Q10: Uppercase</span><button onclick="q10()">Run</button></div>
+        <div class="box"><span>Q11: Title Case</span><button onclick="q11()">Run</button></div>
+        <div class="box"><span>Q12: Remove Dot</span><button onclick="q12()">Run</button></div>
+        <div class="box"><span>Q13: Username Validation</span><button onclick="q13()">Run</button></div>
+        <div class="box"><span>Q14: Bakery Search</span><button onclick="q14()">Run</button></div>
+        <div class="box"><span>Q15: Password Validation</span><button onclick="q15()">Run</button></div>
+        <div class="box"><span>Q16: String to Array</span><button onclick="q16()">Run</button></div>
+        <div class="box"><span>Q17: Last Character</span><button onclick="q17()">Run</button></div>
+        <div class="box"><span>Q18: Count 'the'</span><button onclick="q18()">Run</button></div>
+
+    </div>
+
+    <footer>
+        © findme
+    </footer>
+
+    <script>
+        function q1() { let f = prompt("First name"); let l = prompt("Last name"); alert("Hello " + f + " " + l); }
+        function q2() { let m = prompt("Mobile model"); alert("Length: " + m.length); }
+        function q3() { alert("Index of n: " + "Pakistani".indexOf("n")); }
+        function q4() { alert("Last index of l: " + "Hello World".lastIndexOf("l")); }
+        function q5() { alert("Character: " + "Pakistani".charAt(3)); }
+        function q6() { let f = prompt("First"); let l = prompt("Last"); alert(f.concat(" ", l)); }
+        function q7() { alert("Hyderabad".replace("Hyder", "Islam")); }
+        function q8() { let m = "Ali and Sami are best friends. They play cricket and football together."; alert(m.replace(/and/g, "&")); }
+        function q9() { let s = "472"; let n = Number(s); alert("Value: " + n + "\nType: " + typeof n); }
+        function q10() { alert(prompt("Enter text").toUpperCase()); }
+        function q11() { let t = prompt("Enter text"); alert(t.split(" ").map(w => w[0].toUpperCase() + w.slice(1).toLowerCase()).join(" ")); }
+        function q12() { alert((35.36).toString().replace(".", "")); }
+        function q13() { let u = prompt("Username"); for (let i = 0; i < u.length; i++) { let c = u.charCodeAt(i); if (c == 33 || c == 44 || c == 46 || c == 64) { alert("Invalid username"); return; } } alert("Valid username"); }
+        function q14() { let a = ["cake", "apple pie", "cookie", "chips", "patties"]; let s = prompt("Search item").toLowerCase(); alert(a.includes(s) ? s + " is available" : s + " is not available"); }
+        function q15() { let p = prompt("Password"); if (p.length < 6 || !isNaN(p[0])) { alert("Invalid"); return; } let a = false, n = false; for (let i = 0; i < p.length; i++) { let c = p.charCodeAt(i); if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122)) a = true; if (c >= 48 && c <= 57) n = true; } alert(a && n ? "Valid password" : "Invalid password"); }
+        function q16() { alert("University of Karachi".split(" ").join("\n")); }
+        function q17() { let t = prompt("Enter text"); alert(t[t.length - 1]); }
+        function q18() { let t = "The quick brown fox jumps over the lazy dog"; alert("Count: " + (t.toLowerCase().split("the").length - 1)); }
+    </script>
+
+</body>
+
+</html>
